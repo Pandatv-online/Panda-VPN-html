@@ -8233,6 +8233,7 @@ textarea {
 
   max-width: 610px;
   backdrop-filter: blur(24px);
+ 
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   border: 2px solid var(--tg-color-white-default);

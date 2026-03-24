@@ -50,6 +50,12 @@ if ($('.tgmobile__menu').length) {
 	});
 };
 
+document.querySelectorAll('.tgmobile__menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.body.classList.remove('mobile-menu-visible');
+    });
+});
+
 
 /*===========================================
 	=     Menu sticky & Scroll to top      =
