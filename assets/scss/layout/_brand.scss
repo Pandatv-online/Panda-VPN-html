@@ -1,0 +1,28 @@
+@use '../utils' as *;
+
+/*=============================
+    	10. Brand
+===============================*/
+.brand {
+    &__area {
+        &-two {
+            padding-bottom: 48px;
+        }
+    }
+    &__title {
+        text-align: center;
+        font-weight: 500;
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+    &__item {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        align-items: center;
+        & img {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,241 @@
+@use '../utils' as *;
+
+/*=============================
+    	06. Choose
+===============================*/
+.choose {
+    &__area {
+        background: var(--tg-color-gray-3);
+    }
+    &__inner-wrap {
+        background: linear-gradient(45deg, #fff 70.19%, #e6e2fa 100%);
+        border: 1px solid var(--tg-border-2);
+        border-radius: 16px;
+        padding: 66px 48px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        @media #{$lg} {
+            padding: 50px 30px;
+        }
+        @media #{$md} {
+            padding: 50px 40px;
+        }
+        @media #{$xs} {
+            padding: 30px 25px;
+        }
+        @media #{$sm} {
+            padding: 40px 40px;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            left: 36px;
+            bottom: -288px;
+            width: 550px;
+            height: 550px;
+            @include border-radius(50%);
+            background: rgba(0, 97, 172, 0.2);
+            filter: blur(180px);
+            z-index: -1;
+            opacity: .4;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            right: -103px;
+            top: -86px;
+            width: 366px;
+            height: 366px;
+            @include border-radius(50%);
+            background: rgba(255, 0, 8, 0.2);
+            filter: blur(180px);
+            z-index: -1;
+            opacity: .4;
+        }
+        & .choose__img-two img {
+            box-shadow: 0 0 0 8px #fff;
+        }
+    }
+    &__content {
+        & > p {
+            margin-bottom: 30px;
+        }
+        &-two {
+            & .choose__list {
+                & .list-wrap {
+                    margin-bottom: 48px;
+                    @media #{$lg} {
+                        margin-bottom: 40px;
+                    }
+                }
+            }
+        }
+    }
+    &__list {
+        & .list-wrap {
+            @include flexbox();
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 0;
+            width: 80%;
+            margin-bottom: 90px;
+            @media #{$lg} {
+                margin-bottom: 60px;
+            }
+            & li {
+                @include flexbox();
+                align-items: baseline;
+                font-weight: 500;
+                color: var(--tg-heading-color);
+                gap: 8px;
+                line-height: 1.4;
+                width: 50%;
+                flex: 0 0 auto;
+                @media #{$lg} {
+                    width: 100%;
+                }
+                @media #{$md} {
+                    width: 50%;
+                }
+                @media #{$xs} {
+                    width: 100%;
+                }
+                & svg {
+                    transform: translateY(4px);
+                    width: 20px;
+                    flex: 0 0 auto;
+                }
+            }
+        }
+    }
+    &__img {
+        text-align: right;
+        @media #{$md} {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        &-two {
+            text-align: right;
+            @media #{$md} {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            & img {
+                @include border-radius(16px);
+            }
+        }
+    }
+}
+
+
+.counter {
+    &__area {
+        border-top: 1px solid var(--tg-border-2);
+        border-bottom: 1px solid var(--tg-border-2);
+        padding: 80px 0 50px;
+    }
+    &__wrap {
+        @include flexbox();
+        align-items: center;
+        gap: 30px 100px;
+        flex-wrap: wrap;
+        @media #{$lg} {
+            gap: 30px 50px;
+        }
+        &-two {
+            @include flexbox();
+            align-items: center;
+            gap: 40px;
+            @media #{$lg} {
+                gap: 20px;
+            }
+            @media #{$md} {
+                flex-wrap: wrap;
+            }
+        }
+    }
+    &__item {
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            right: -50px;
+            top: 0;
+            width: 1px;
+            height: 54px;
+            background: #d9dfe5;
+            @media #{$lg} {
+                right: -25px;
+            }
+        }
+        &:last-child {
+            &::before {
+                display: none;
+            }
+        }
+        & .count {
+            font-size: 24px;
+            margin-bottom: 8px;
+            line-height: 1;
+            color: var(--tg-theme-primary);
+        }
+        & > p {
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        &-two {
+            @include flexbox();
+            box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12);
+            gap: 16px;
+            border: 1px solid var(--tg-border-2);
+            @include border-radius(8px);
+            padding: 20px 35px 20px 20px;
+            z-index: 2;
+            position: relative;
+            background: var(--tg-color-white-default);
+            @media #{$lg} {
+                padding: 20px 15px;
+            }
+            @media #{$md} {
+                padding: 20px 30px 20px 20px;
+            }
+            & .icon {
+                width: 40px;
+                flex: 0 0 auto;
+            }
+            & .content {
+                & .count {
+                    font-size: 28px;
+                    margin-bottom: 6px;
+                    @include flexbox();
+                    align-items: center;
+                    gap: 5px;
+                    line-height: 1;
+                }
+                & p {
+                    margin-bottom: 0;
+                    white-space: nowrap;
+                    font-weight: 500;
+                    color: #384559;
+                }
+            }
+        }
+        &-three {
+            margin-bottom: 30px;
+            & .count {
+                font-size: 40px;
+                margin-bottom: 16px;
+                line-height: 1;
+                @media #{$lg} {
+                    font-size: 36px;
+                }
+            }
+            & p {
+                margin-bottom: 0;
+                font-size: 18px;
+            }
+        }
+    }
+}

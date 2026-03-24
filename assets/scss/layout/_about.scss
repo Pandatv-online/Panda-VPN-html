@@ -1,0 +1,186 @@
+@use '../utils' as *;
+
+/*=============================
+    	16. About
+===============================*/
+.about {
+    &__area {
+        background: var(--tg-color-gray-8);
+        padding: 80px 0 55px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        @media #{$md} {
+            padding: 50px 0 50px;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            right: 18%;
+            top: -300px;
+            width: 344px;
+            height: 344px;
+            @include border-radius(50%);
+            background: linear-gradient(180deg, #6243ff 0%, #ff2828 100%);
+            z-index: -1;
+            filter: blur(180px);
+            opacity: .4;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            right: 35%;
+            bottom: -250px;
+            width: 404px;
+            height: 404px;
+            @include border-radius(50%);
+            background: linear-gradient(210deg, #09e6ff 0%, #6f56da 100%);
+            z-index: -2;
+            filter: blur(180px);
+            opacity: .4;
+        }
+    }
+    &__content {
+        & .section__title {
+            margin-bottom: 12px;
+            & .title {
+                font-size: 48px;
+                @media #{$lg} {
+                    font-size: 42px;
+                }
+                @media #{$md} {
+                    font-size: 40px;
+                }
+                @media #{$xs} {
+                    font-size: 36px;
+                }
+                @media #{$sm} {
+                    font-size: 38px;
+                }
+            }
+        }
+        & p {
+            margin-bottom: 30px;
+        }
+    }
+    &__img {
+        text-align: right;
+        @media #{$md} {
+            text-align: center;
+            margin-top: 50px;
+        }
+    }
+    &__shape {
+        & img {
+            position: absolute;
+            right: 14%;
+            bottom: 0;
+            z-index: -1;
+            @media #{$xl} {
+                right: 10%;
+            }
+            @media #{$lg} {
+                right: 5%;
+                max-width: 500px;
+            }
+        }
+    }
+}
+
+.vision {
+    &__img {
+        text-align: right;
+        @media #{$md} {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        & img {
+            @include border-radius(16px);
+            border: 1px solid var(--tg-border-2);
+        }
+    }
+    &__content {
+        width: 90%;
+        @media #{$lg} {
+            width: 95%;
+        }
+        @media #{$md} {
+            width: 100%;
+        }
+        & p {
+            margin-bottom: 48px;
+            @media #{$md} {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+.mission {
+    &__img {
+        position: relative;
+        @media #{$md} {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        & img {
+            @include border-radius(16px);
+            border: 1px solid var(--tg-border-2);
+        }
+        & .shape {
+            border: none;
+            position: absolute;
+            left: 48px;
+            bottom: 48px;
+            box-shadow: 0 19px 38px 0 rgba(6, 33, 1, 0.16);
+        }
+    }
+    &__content {
+        margin-left: 70px;
+        @media #{$lg} {
+            margin-left: 25px;
+        }
+        @media #{$md} {
+            margin-left: 0px;
+        }
+        & p {
+            margin-bottom: 48px;
+            @media #{$md} {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+.deal {
+    &__area {
+        border-bottom: 1px solid #e4effb;
+        border-top: 1px solid #e4effb;
+        background: #F8FBFF;
+        padding: 16px 0;
+    }
+    &__content {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        & .left-content {
+            @include flexbox();
+            align-items: center;
+            gap: 4px;
+            & svg {
+                color: var(--tg-theme-primary-2);
+            }
+            & p {
+                margin-bottom: 0;
+                font-weight: 500;
+                font-size: 14px;
+            }
+        }
+        & .tg-btn {
+            font-size: 12px;
+            padding: 12px 20px;
+        }
+    }
+}

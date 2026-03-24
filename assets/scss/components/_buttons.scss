@@ -1,0 +1,292 @@
+@use '../utils' as *;
+
+/*=============================
+	 Button style
+===============================*/
+.tg-button-wrap {
+    @include flexbox();
+}
+.tg-btn {
+    user-select: none;
+    -moz-user-select: none;
+    background: var(--tg-theme-primary) none repeat scroll 0 0;
+    color: var(--tg-color-white-default);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: var(--tg-fw-medium);
+    font-family: var(--tg-heading-font-family);
+    letter-spacing: 0;
+    line-height: 1;
+    margin-bottom: 0;
+    padding: 12px 20px;
+    text-align: center;
+    text-transform: capitalize;
+    touch-action: manipulation;
+    @include transition(.3s);
+    vertical-align: middle;
+    @include border-radius(8px);
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    border: none;
+    gap: 8px;
+    &:hover,
+    &:focus-visible {
+        background: var(--tg-color-green-default);
+        color: var(--tg-color-white-default);
+    }
+}
+
+.tg-btn-two {
+    background: linear-gradient(180deg, rgba(131, 109, 228, 1) 0%, rgba(78, 55, 178, 1) 100%);
+    @include border-radius(24px);
+    z-index: 1;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 2px;
+        right: 2px;
+        top: 2px;
+        bottom: 2px;
+        background: var(--tg-theme-secondary);
+        z-index: -1;
+        @include border-radius(24px);
+        @include transition(.3s);
+    }
+    &:hover,
+    &:focus-visible {
+        background: linear-gradient(180deg, rgba(131, 109, 228, 1) 0%, rgba(78, 55, 178, 1) 100%);
+        color: var(--tg-color-white-default);
+        &::before {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: var(--tg-color-blue-default);
+        }
+    }
+}
+
+.tg-btn-three {
+    width: 100%;
+    background: var(--tg-color-white-default);
+    color: var(--tg-heading-color);
+    font-size: 14px;
+    justify-content: space-between;
+    padding: 12px 20px;
+    &:hover {
+        background: var(--tg-theme-primary);
+        color: var(--tg-color-white-default);
+    }
+}
+
+.tg-btn-four {
+    background: var(--tg-heading-color);
+    min-width: 260px;
+    justify-content: space-between;
+    font-size: 14px;
+    &:hover {
+        background: var(--tg-color-dark-5);
+    }
+}
+
+.tg-btn-five {
+    background: var(--tg-theme-primary-2);
+    @include border-radius(40px);
+    font-size: 14px;
+    &:hover {
+        background: #007aff;
+    }
+}
+
+.tg-btn-six {
+    background: linear-gradient(180deg, rgba(255, 125, 125, 1) 100%, rgba(255, 0, 0, 1) 100%);
+    &::before {
+        background: var(--tg-theme-primary-3);
+    }
+    &:hover,
+    &:focus-visible {
+        background: linear-gradient(180deg, rgba(255, 125, 125, 1) 100%, rgba(255, 0, 0, 1) 100%);
+        &::before {
+            background: var(--tg-theme-primary-3);
+        }
+    }
+}
+
+.tg-black-btn {
+    background: var(--tg-heading-color);
+    &:hover {
+        background: var(--tg-theme-primary);
+    }
+}
+
+.tg-black-btn-two {
+    background: var(--tg-heading-color);
+    font-size: 14px;
+    @include border-radius(24px);
+    padding: 13px 20px;
+    &:hover {
+        background: var(--tg-theme-secondary);
+    }
+}
+
+.tg-white-btn {
+    background: var(--tg-color-white-default);
+    color: var(--tg-theme-primary);
+    &:hover {
+        color: var(--tg-color-white-default);
+        background: var(--tg-heading-color);
+    }
+}
+
+.tg-white-btn-two {
+    background: var(--tg-color-white-default);
+    color: var(--tg-heading-color);
+}
+
+.tg-border-btn {
+    border: 1px solid var(--tg-heading-color);
+    background: var(--tg-color-white-default);
+    color: var(--tg-heading-color);
+    padding: 13px 20px;
+    &.active,
+    &:hover {
+        border-color: var(--tg-theme-primary);
+        color: var(--tg-color-white-default);
+        background: var(--tg-theme-primary);
+    }
+}
+
+.tg-border-btn-two {
+    border: 1px solid var(--tg-theme-primary);
+    background: var(--tg-color-white-default);
+    color: var(--tg-theme-primary);
+    &:hover {
+        border-color: var(--tg-theme-primary);
+        color: var(--tg-color-white-default);
+        background: var(--tg-theme-primary);
+    }
+}
+
+.tg-border-btn-three {
+    border: 1px solid var(--tg-theme-secondary);
+    background: var(--tg-color-white-default);
+    color: var(--tg-theme-secondary);
+    @include border-radius(24px);
+    font-size: 14px;
+    padding: 11px 18px;
+    &:hover {
+        border-color: var(--tg-theme-secondary);
+        color: var(--tg-color-white-default);
+        background: var(--tg-theme-secondary);
+    }
+}
+
+.tg-border-btn-four {
+    border: 1px solid var(--tg-theme-primary-2);
+    @include border-radius(24px);
+    background: var(--tg-color-white-default);
+    color: var(--tg-theme-primary-2);
+    &:hover {
+        background: var(--tg-theme-primary-2);
+        border-color: var(--tg-theme-primary-2);
+    }
+}
+
+.tg-link-btn {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    color: var(--tg-heading-color);
+    gap: 4px;
+    position: relative;
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: var(--tg-heading-color);
+        transition: all ease 0.4s;
+    }
+    &::after {
+        width: 0;
+        left: 0;
+        transition: all ease 0.8s;
+    }
+    & .link-effect {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        height: 22px;
+        line-height: normal;
+        & .effect-1 {
+            display: block;
+            height: 100%;
+            position: relative;
+            top: 0%;
+            transition: 0.3s;
+        }
+    }
+    &:hover {
+        color: var(--tg-heading-color);
+        &::before {
+            width: 0;
+        }
+        &::after {
+            width: 100%;
+        }
+        & .effect-1 {
+            top: -100%;
+        }
+    }
+}
+
+.tg-link-btn-two {
+    color: var(--tg-theme-secondary);
+    &::after,
+    &::before {
+        background: var(--tg-theme-secondary);
+    }
+}
+
+.tg-btn-group {
+    display: flex;
+    width: fit-content;
+    overflow: hidden;
+    & .tg-btn-circle {
+        text-align: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 100%;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        background: var(--tg-theme-primary-2);
+        color: var(--tg-color-white-default);
+    }
+    & > *:nth-child(1) {
+        transform: scale3d(1, 1, 1);
+        margin-inline-start: 0;
+    }
+    & > *:nth-child(3) {
+        transform: scale3d(0.5, 0.5, 1);
+        margin-inline-end: -48px;
+    }
+    &:hover {
+        & > *:nth-child(1) {
+            transform: scale3d(0.5, 0.5, 1);
+            margin-inline-start: -48px;
+        }
+        & > *:nth-child(3) {
+            transform: scale3d(1, 1, 1);
+            margin-inline-end: 0;
+        }
+    }
+}

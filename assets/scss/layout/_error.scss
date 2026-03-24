@@ -1,0 +1,44 @@
+@use '../utils' as *;
+
+/*=============================
+    	21. Error
+===============================*/
+.error {
+    &__area {
+        position: relative;
+        z-index: 1;
+        padding: 120px 0;
+        @media #{$xs} {
+            padding: 100px 0;
+        }
+        & .shape {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+            @media #{$md} {
+                max-width: 320px;
+            }
+            @media #{$xs} {
+                max-width: 280px;
+            }
+        }
+    }
+    &__content {
+        text-align: center;
+        & img {
+            margin-bottom: 24px;
+        }
+        & .title {
+            margin-bottom: 16px;
+            font-weight: 500;
+            font-size: 40px;
+            @media #{$xs} {
+                font-size: 34px;
+            }
+        }
+        & p {
+            margin-bottom: 40px;
+        }
+    }
+}

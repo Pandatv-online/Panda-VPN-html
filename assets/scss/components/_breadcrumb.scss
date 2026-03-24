@@ -1,0 +1,127 @@
+@use '../utils' as *;
+
+/*=========================
+      Breadcrumb
+===========================*/
+.breadcrumb {
+    &__area {
+        position: relative;
+        z-index: 1;
+        padding: 80px 0 120px;
+        @media #{$lg} {
+            padding: 80px 0 100px;
+        }
+        @media #{$xs} {
+            padding: 60px 0 80px;
+        }
+        & .shape {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+            @media #{$md} {
+                max-width: 320px;
+            }
+            @media #{$xs} {
+                max-width: 280px;
+            }
+        }
+        &-two {
+            padding: 80px 0 32px;
+            @media #{$xs} {
+                padding: 60px 0 32px;
+            }
+        }
+        &-three {
+            padding: 80px 0 40px;
+            @media #{$xs} {
+                padding: 60px 0 40px;
+            }
+        }
+    }
+    &__inner-wrap {
+        padding: 0 56px;
+        @media #{$lg} {
+            padding: 0;
+        }
+        & .breadcrumb__content {
+            & .title {
+                text-align: left;
+            }
+        }
+    }
+    &__content {
+        text-align: center;
+        & .breadcrumb {
+            display: inline-flex;
+            background: var(--tg-color-gray-8);
+            @include border-radius(24px);
+            padding: 8px 16px;
+            gap: 8px;
+            margin-bottom: 24px;
+            & span {
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 1.2;
+                color: var(--tg-heading-color);
+                & a {
+                    color: var(--tg-color-gray-4);
+                    &:hover {
+                        color: var(--tg-theme-secondary);
+                    }
+                }
+                &.breadcrumb-separator {
+                    color: var(--tg-color-gray-4);
+                }
+            }
+        }
+        & .title {
+            margin-bottom: 0;
+            font-size: 40px;
+            @media #{$lg} {
+                font-size: 36px;
+            }
+            @media #{$xs} {
+                font-size: 32px;
+            }
+        }
+    }
+    &__menu {
+        margin-top: 32px;
+        & .list-wrap {
+            @include flexbox();
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            & li {
+                & a {
+                    font-weight: 500;
+                    font-size: 14px;
+                    background: #F0F2F6;
+                    display: block;
+                    color: var(--tg-body-color);
+                    padding: 13px 20px;
+                    @include border-radius(40px);
+                    line-height: 1;
+                    position: relative;
+                    z-index: 1;
+                    &:hover {
+                        background: var(--tg-theme-secondary);
+                        color: var(--tg-color-white-default);
+                    }
+                    & span {
+                        font-weight: 600;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        border: 1px solid #d9dfe5;
+                        border-radius: 4px;
+                        background: var(--tg-color-white-default);
+                        color: var(--tg-heading-color);
+                        padding: 1px 5px;
+                    }
+                }
+            }
+        }
+    }
+}

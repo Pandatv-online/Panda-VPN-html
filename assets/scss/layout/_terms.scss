@@ -1,0 +1,22 @@
+@use '../utils' as *;
+
+/*=============================
+    	22. Terms
+===============================*/
+.terms {
+    &__content {
+        & .title {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        & p {
+            margin-bottom: 32px;
+            &.last-info {
+                margin-bottom: 0;
+            }
+        }
+        &-bottom {
+            margin-top: 40px;
+        }
+    }
+}

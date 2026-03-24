@@ -1,0 +1,162 @@
+@use '../utils' as *;
+
+/*=============================
+	00. Section Title
+===============================*/
+.section__title {
+    position: relative;
+    & .sub-title {
+        font-weight: 500;
+        font-size: 12px;
+        border: 1px solid var(--tg-border-2);
+        display: inline-block;
+        padding: 8px 15px;
+        @include border-radius(24px);
+        line-height: 1;
+        margin-bottom: 16px;
+    }
+    & .title {
+        margin-bottom: 0;
+        font-size: 40px;
+        @media #{$lg} {
+            font-size: 36px;
+        }
+        @media #{$xs} {
+            font-size: 32px;
+        }
+        & span {
+            color: var(--tg-theme-primary);
+        }
+        & .shape {
+            width: 165px;
+            height: auto;
+            & path {
+                fill: none;
+                stroke: #FC5C79;
+                stroke-width: 2;
+            }
+        }
+    }
+    & p {
+        margin-bottom: 0;
+        margin-top: 16px;
+    }
+    &.white-title {
+        & .title {
+            color: var(--tg-color-white-default);
+        }
+        & p {
+            color: var(--tg-color-gray-5);
+        }
+    }
+    & .white-content {
+        color: var(--tg-color-white-default) !important;
+    }
+    &-two {
+        & .title {
+            & span {
+                text-decoration: underline;
+                text-decoration-skip-ink: none;
+                color: var(--tg-theme-secondary);
+                font-style: italic;
+            }
+        }
+    }
+}
+
+.section__title.mb-70,
+.section__title.mb-60 {
+    @media #{$md} {
+        margin-bottom: 40px;
+    }
+}
+
+.section-py-140 {
+    padding: 140px 0;
+    @media #{$md} {
+        padding: 120px 0;
+    }
+    @media #{$xs} {
+        padding: 100px 0;
+    }
+}
+.section-pt-140 {
+    padding-top: 140px;
+    @media #{$md} {
+        padding-top: 120px;
+    }
+    @media #{$xs} {
+        padding-top: 100px;
+    }
+}
+.section-pb-140 {
+    padding-bottom: 140px;
+    @media #{$md} {
+        padding-bottom: 120px;
+    }
+    @media #{$xs} {
+        padding-bottom: 100px;
+    }
+}
+.section-pb-110 {
+    padding-bottom: 110px;
+    @media #{$md} {
+        padding-bottom: 90px;
+    }
+    @media #{$xs} {
+        padding-bottom: 70px;
+    }
+}
+
+
+.section-py-120 {
+    padding: 120px 0;
+    @media #{$xs} {
+        padding: 100px 0;
+    }
+}
+.section-pt-120 {
+    padding-top: 120px;
+    @media #{$xs} {
+        padding-top: 100px;
+    }
+}
+.section-pb-120 {
+    padding-bottom: 120px;
+    @media #{$xs} {
+        padding-bottom: 100px;
+    }
+}
+.section-pb-90 {
+    padding-bottom: 90px;
+    @media #{$xs} {
+        padding-bottom: 70px;
+    }
+}
+.section-pt-90 {
+    padding-top: 90px;
+    @media #{$xs} {
+        padding-top: 70px;
+    }
+}
+
+
+.has-animation.active-animation {
+    & .section__title {
+        & .title {
+            & .shape {
+                & path {
+                    stroke-dasharray: 2000;
+                    stroke-dashoffset: 2000;
+                    animation: draw 10s ease forwards;
+                }
+            }
+        }
+    }
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

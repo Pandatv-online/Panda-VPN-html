@@ -1,0 +1,65 @@
+@use '../utils' as *;
+
+/*=============================
+    	19. Marquee
+===============================*/
+.marquee {
+    &__area {
+        background: #DEF7EA;
+        padding: 39px 0;
+    }
+    &__item {
+        margin-right: 70px;
+        display: inline;
+        font-size: 20px;
+        position: relative;
+        margin-bottom: 0;
+        &::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: var(--tg-heading-color);
+            @include border-radius(50%);
+        }
+        &-two {
+            background: #80C1FF;
+            @include border-radius(48px);
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--tg-heading-color);
+            padding: 23px 40px;
+            cursor: pointer;
+            &.tg-purple {
+                background: #B5A5F8;
+            }
+            &.tg-yellow {
+                background: #FFCB59;
+            }
+            &.tg-green {
+                background: #75FFB7;
+            }
+            &.tg-red {
+                background: #FF9292;
+            }
+            &.tg-gray {
+                background: #D4D4D4;
+            }
+            &.tg-orange {
+                background: #FF9E5E;
+            }
+        }
+    }
+}
+
+.tg-marquee-active .swiper-slide {
+    width: auto !important;
+}
+
+.slide-transition {
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}

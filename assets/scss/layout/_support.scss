@@ -1,0 +1,229 @@
+@use '../utils' as *;
+
+/*=============================
+    	13. Support
+===============================*/
+.support {
+    &__area {
+        &-three {
+            background: var(--tg-color-gray-3);
+        }
+    }
+    &__bg {
+        background-size: cover;
+        background-position: center;
+        padding: 48px;
+        @include border-radius(24px);
+        overflow: hidden;
+        margin-bottom: 24px;
+        @media #{$lg} {
+            padding: 30px;
+        }
+        @media #{$xs} {
+            padding: 20px;
+        }
+    }
+    &__inner-wrap {
+        padding: 0 90px;
+        @media #{$lg} {
+            padding: 0 0;
+        }
+        &-two {
+            background: #E2DBFF;
+            @include border-radius(16px);
+            padding: 80px 90px;
+            position: relative;
+            z-index: 1;
+            @media #{$lg} {
+                padding: 80px 40px;
+            }
+            @media #{$xs} {
+                padding: 60px 30px;
+            }
+            & .shape {
+                position: absolute;
+                right: 36%;
+                bottom: 16%;
+                width: 254px;
+                height: auto;
+                z-index: -1;
+                @media #{$lg} {
+                    right: 32%;
+                }
+                @media #{$md} {
+                    right: 6%;
+                    bottom: 4%;
+                }
+                @media #{$xs} {
+                    display: none;
+                }
+                & path {
+                    fill: none;
+                    stroke: var(--tg-color-white-default);
+                    stroke-width: 2;
+                }
+            }
+        }
+        &-three {
+            padding: 0 35px;
+            @media #{$lg} {
+                padding: 0;
+            }
+        }
+    }
+    &__thumb {
+        text-align: center;
+        @media #{$md} {
+            margin-bottom: 50px;
+        }
+        &-two {
+            text-align: right;
+            @media #{$md} {
+                text-align: center;
+            }
+            & img {
+                @include border-radius(50%);
+            }
+        }
+        &-three {
+            text-align: right;
+            margin-left: -12px;
+            @media #{$lg} {
+                margin-left: 0;
+            }
+            @media #{$md} {
+                text-align: center;
+            }
+        }
+    }
+    &__content {
+        & .tg-link-btn {
+            color: var(--tg-theme-secondary);
+            &::after,
+            &::before {
+                background: var(--tg-theme-secondary);
+            }
+        }
+        &-two {
+            width: 90%;
+            @media #{$lg} {
+                width: 100%;
+            }
+            & .tg-link-btn {
+                color: var(--tg-body-color);
+                &::after,
+                &::before {
+                    background: var(--tg-body-color);
+                }
+            }
+        }
+        &-three {
+            width: 90%;
+            @media #{$lg} {
+                width: 100%;
+            }
+            & .support__list-wrap {
+                margin-bottom: 0;
+            }
+        }
+        &-four {
+            max-width: 560px;
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            border: 2px solid var(--tg-color-white-default);
+            padding: 48px 48px;
+            position: relative;
+            z-index: 1;
+            @media #{$lg} {
+                max-width: 520px;
+                padding: 30px 25px;
+            }
+            @media #{$md} {
+                margin: 0 auto;
+            }
+            @media #{$md} {
+                width: 100%;
+                padding: 25px 20px;
+            }
+            & .shape {
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: -1;
+                @include border-radius(0 16px 0 0);
+                overflow: hidden;
+            }
+            & .title {
+                margin-bottom: 24px;
+                font-size: 32px;
+                line-height: 1.4;
+                @media #{$lg} {
+                    font-size: 28px;
+                }
+                @media #{$xs} {
+                    font-size: 26px;
+                }
+            }
+        }
+    }
+    &__icon {
+        width: 72px;
+        height: 72px;
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        background: var(--tg-color-white-default);
+        color: var(--tg-theme-primary-2);
+        @include border-radius(50%);
+        border: 1px solid #d1e0f0;
+        margin-bottom: 32px;
+    }
+    &__list-wrap {
+        margin-bottom: 40px;
+        @media #{$xs} {
+            margin-bottom: 30px;
+        }
+    }
+    &__list-item {
+        @include flexbox();
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        & .icon {
+            color: var(--tg-theme-secondary);
+            width: 32px;
+            flex: 0 0 auto;
+        }
+        & .content {
+            & .title {
+                margin-bottom: 5px;
+                font-size: 18px;
+            }
+            & p {
+                margin-bottom: 0;
+            }
+        }
+        &-two {
+            & .icon {
+                color: var(--tg-body-color);
+            }
+        }
+        &-three {
+            gap: 24px;
+            & .icon {
+                color: var(--tg-color-gray-4);
+                width: 40px;
+                flex: 0 0 auto;
+            }
+        }
+        &-four {
+            & .icon {
+                color: var(--tg-theme-primary-2);
+            }
+        }
+    }
+}

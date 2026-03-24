@@ -1,0 +1,417 @@
+@use '../utils' as *;
+
+/*=============================
+    	09. Testimonial
+===============================*/
+.testimonial {
+    &__inner-wrap {
+        border: 1px solid var(--tg-border-2);
+        @include border-radius(16px);
+        background: var(--tg-color-gray-3);
+    }
+    &__video-wrap {
+        background-size: cover;
+        background-position: center;
+        padding: 115px 55px 55px;
+        background-color: var(--tg-color-gray-6);
+        @include border-radius(16px);
+        @include flexbox();
+        align-items: flex-end;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 24px;
+        @media #{$lg} {
+            padding: 80px 55px 40px;
+        }
+        @media #{$md} {
+            padding: 60px 30px 40px;
+        }
+        @media #{$xs} {
+            justify-content: center;
+        }
+        &-two {
+            & .play-btn a {
+                color: var(--tg-theme-primary-3);
+                &:hover {
+                    background: var(--tg-theme-primary-3);
+                    color: var(--tg-color-white-default);
+                }
+            }
+        }
+    }
+    &__quote {
+        width: 385px;
+        flex: 0 0 auto;
+        background: var(--tg-color-white-default);
+        padding: 40px 32px;
+        @include border-radius(8px);
+        min-height: 480px;
+        @include flexbox();
+        flex-direction: column;
+        @media #{$xs} {
+            width: 100%;
+        }
+        & > svg {
+            color: var(--tg-heading-color);
+            margin-bottom: 24px;
+        }
+        & > p {
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        &-author {
+            margin-top: auto;
+            & .title {
+                margin-bottom: 5px;
+                font-weight: 500;
+                font-size: 18px;
+            }
+            & span {
+                display: block;
+                font-size: 14px;
+                color: var(--tg-color-gray-4);
+            }
+        }
+    }
+    &__item {
+        background: var(--tg-color-gray-3);
+        @include border-radius(5px);
+        padding: 40px 32px;
+        min-height: 400px;
+        height: 100%;
+        @include flexbox();
+        flex-direction: column;
+        @media #{$lg} {
+            padding: 35px 25px;
+        }
+        & .rating {
+            @include flexbox();
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        &-wrap {
+            padding: 64px 64px 74px 64px;
+            height: 100%;
+            min-height: 640px;
+            @media #{$lg} {
+                padding: 40px 40px 50px 40px;
+                min-height: 580px;
+            }
+            @media #{$md} {
+                min-height: 550px;
+            }
+            @media #{$xs} {
+                padding: 30px 30px 40px 30px;
+                min-height: 480px;
+            }
+            & .single-slide {
+                height: 100%;
+            }
+            & .slick-track,
+            & .slick-list,
+            & .testimonial-active {
+                height: 100%;
+            }
+            &-two {
+                & .testimonial__item {
+                    @include border-radius(16px);
+                }
+            }
+        }
+        &-two {
+            @include flexbox();
+            position: relative;
+            z-index: 1;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            & .shape {
+                position: absolute;
+                right: 0;
+                bottom: 55px;
+                width: 200px;
+                height: auto;
+                z-index: -1;
+                @media #{$xs} {
+                    width: 140px;
+                }
+                & path {
+                    fill: none;
+                    stroke: #FC5C79;
+                    stroke-width: 2;
+                }
+            }
+        }
+        &-four {
+            background: #B5A5F8;
+            @include flexbox();
+            align-items: flex-end;
+            gap: 20px;
+            padding: 0 45px 0 0;
+            @include border-radius(16px);
+            overflow: hidden;
+            @media #{$lg} {
+                padding: 0 24px 0 0;
+            }
+            @media #{$xs} {
+                flex-wrap: wrap;
+                padding: 30px;
+            }
+        }
+    }
+    &__img {
+        width: 352px;
+        flex: 0 0 auto;
+        @media #{$lg} {
+            width: 310px;
+        }
+        @media #{$xs} {
+            display: none;
+        }
+    }
+    &__content {
+        & p {
+            margin-bottom: 20px;
+        }
+        &-two {
+            & svg {
+                color: var(--tg-theme-secondary);
+                margin-bottom: 48px;
+                @media #{$lg} {
+                    margin-bottom: 40px;
+                }
+                @media #{$xs} {
+                    margin-bottom: 20px;
+                }
+            }
+            & p {
+                margin-bottom: 30px;
+                font-style: italic;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 1.5;
+                @media #{$lg} {
+                    font-size: 22px;
+                }
+                @media #{$xs} {
+                    font-size: 20px;
+                }
+            }
+        }
+        &-three {
+            min-height: 400px;
+            @include flexbox();
+            flex-direction: column;
+            padding: 48px 0;
+            @media #{$xs} {
+                padding: 0;
+            }
+            & svg {
+                color: #7760D7;
+                margin-bottom: 16px;
+            }
+            & p {
+                font-size: 18px;
+                line-height: 1.5;
+                color: var(--tg-heading-color);
+                margin-bottom: 20px;
+            }
+        }
+    }
+    &__author {
+        @include flexbox();
+        align-items: center;
+        gap: 16px;
+        margin-top: auto;
+        & .thumb {
+            width: 48px;
+            flex: 0 0 auto;
+            & img {
+                @include border-radius(50%);
+            }
+        }
+        & .content {
+            & .title {
+                margin-bottom: 5px;
+                font-weight: 500;
+                font-size: 18px;
+            }
+            & span {
+                display: block;
+                font-size: 14px;
+            }
+        }
+    }
+    &__slider-thumb {
+        background: var(--tg-heading-color);
+        height: 100%;
+        border-radius: 0 16px 16px 0;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        padding: 44px 0;
+        @media #{$md} {
+            border-radius: 0 0 16px 16px;
+        }
+        & img {
+            @include border-radius(168px);
+            width: 100%;
+        }
+        & .testimonial-nav {
+            margin: 0 -190px;
+            line-height: 1;
+            @media #{$lg} {
+                margin: 0 -170px;
+            }
+            @media #{$xs} {
+                margin: 0 -200px;
+            }
+        }
+        & .single-slide {
+            padding: 0 15px;
+        }
+    }
+    &__nav {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        width: 112px;
+        height: 56px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 48px;
+        padding: 8px;
+        gap: 16px;
+        margin-top: 16px;
+        & > button {
+            width: 40px;
+            height: 40px;
+            @include flexbox();
+            align-items: center;
+            justify-content: center;
+            background: var(--tg-color-white-default);
+            @include border-radius(50%);
+            border: none;
+            color: var(--tg-body-color);
+            &:hover {
+                color: var(--tg-color-white-default);
+                background: var(--tg-theme-secondary);
+            }
+        }
+        &-two {
+            @include flexbox();
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            @media #{$xs} {
+                justify-content: flex-start;
+            }
+            & button {
+                width: 40px;
+                height: 40px;
+                background: transparent;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -o-border-radius: 50%;
+                -ms-border-radius: 50%;
+                border-radius: 50%;
+                border: 1px solid var(--tg-border-2);
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--tg-color-gray-4);
+                &:hover {
+                    border-color: var(--tg-theme-secondary);
+                    color: var(--tg-theme-secondary);
+                }
+            }
+        }
+    }
+    &__bottom-content {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        & img {
+            transform: translateY(-2px);
+        }
+        & p {
+            margin-bottom: 0;
+            font-weight: 500;
+            line-height: 1.2;
+            & span {
+                color: var(--tg-heading-color);
+            }
+        }
+    }
+    &__view-btn {
+        & .tg-btn {
+            color: var(--tg-theme-primary-3);
+            border-color: var(--tg-theme-primary-3);
+            @include border-radius(32px);
+            &:hover {
+                background: var(--tg-theme-primary-3);
+                color: var(--tg-color-white-default);
+            }
+        }
+    }
+}
+
+.play-btn a {
+    width: 96px;
+    height: 96px;
+    @include flexbox();
+    align-items: center;
+    justify-content: center;
+    @include border-radius(50%);
+    background: var(--tg-color-white-default);
+    flex: 0 0 auto;
+    color: var(--tg-theme-primary);
+    &:hover {
+        background: var(--tg-theme-primary);
+        color: var(--tg-color-white-default);
+    }
+}
+
+.single-slide.slick-active .testimonial__item-two {
+    & .shape {
+        & path {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: draw 10s ease forwards;
+        }
+    }
+}
+
+.testimonial-active-two {
+    margin: 0 -478px 0 0;
+    @media #{$xl} {
+        margin: 0 -430px 0 0;
+    }
+    @media #{$lg} {
+        margin: 0 -220px 0 0;
+    }
+    @media #{$md} {
+        margin: 0 -355px 0 0;
+    }
+    @media #{$xs} {
+        margin: 0 0 0 0;
+    }
+    @media #{$sm} {
+        margin: 0 -160px 0 0;
+    }
+}
+
+.mfp-iframe-holder .mfp-content {
+    max-width: 1200px;
+}

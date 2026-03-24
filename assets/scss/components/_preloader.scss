@@ -1,0 +1,43 @@
+@use '../utils' as *;
+
+/*=============================
+    00. Preloader
+===============================*/
+#preloader {
+    background-color: var(--tg-color-white-default);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    margin-top: 0px;
+    top: 0px;
+    z-index: 9999;
+    @include flexbox();
+    align-items: center;
+    justify-content: center;
+}
+.loader {
+    width: 60px;
+    aspect-ratio: 1;
+    --g: conic-gradient(from -90deg at 10px 10px, #6F56DA 90deg, #0000 0);
+    background: var(--g), var(--g), var(--g);
+    background-size: 50% 50%;
+    animation: loader 1s infinite;
+}
+
+@keyframes loader {
+    0% {
+        background-position: 0 0, 10px 10px, 20px 20px
+    }
+
+    33% {
+        background-position: 10px 10px
+    }
+
+    66% {
+        background-position: 0 20px, 10px 10px, 20px 0
+    }
+
+    100% {
+        background-position: 0 0, 10px 10px, 20px 20px
+    }
+}

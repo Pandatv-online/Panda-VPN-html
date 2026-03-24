@@ -1,0 +1,248 @@
+@use '../utils' as *;
+
+/*=============================
+    	11. Faq
+===============================*/
+.faq {
+    &__inner-wrap {
+        padding: 0 50px;
+        @media #{$lg} {
+            padding: 0 0;
+        }
+        &-two {
+            padding: 0 90px;
+            @media #{$lg} {
+                padding: 0;
+            }
+        }
+    }
+    &__content {
+        @media #{$md} {
+            margin-bottom: 50px;
+        }
+        & p {
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        & .tg-link-btn {
+            color: var(--tg-theme-primary);
+            &::after,
+            &::before {
+                background: var(--tg-theme-primary);
+            }
+        }
+    }
+    &__wrap {
+        margin-left: 30px;
+        @media #{$lg} {
+            margin-left: 0;
+        }
+       & .accordion {
+        	&-item {
+                margin-bottom: 48px;
+                border: none;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            &-button {
+                font-size: 24px;
+                font-weight: 500;
+                padding: 0 40px 18px 0;
+                color: var(--tg-heading-color);
+                background: transparent;
+                position: relative;
+                border: none;
+                border-bottom: 1px solid var(--tg-border-2);
+                @include flexbox();
+                align-items: flex-start;
+                gap: 7px;
+                @media #{$lg} {
+                    font-size: 22px;
+                }
+                @media #{$xs} {
+                    font-size: 20px;
+                }
+                &::after {
+                    display: none;
+                }
+                &::before {
+                    content: "\f109";
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    font-family: "flaticon_tg_default";
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: var(--tg-heading-color);
+                    width: 32px;
+                    height: 32px;
+                    @include flexbox();
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--tg-color-gray-3);
+                    @include border-radius(4px);
+                }
+                &:not(.collapsed) {
+                    color: var(--tg-heading-color);
+                    background: transparent;
+                    box-shadow: none;
+                    &::before {
+                        content: "\f10a";
+                        color: var(--tg-heading-color);
+                    }
+                }
+                &.accordion-button:focus {
+                    box-shadow: none;
+                }
+            }
+            &-body {
+                padding: 30px 0 0;
+                @media #{$xs} {
+                    padding: 25px 0 0;
+                }
+                & p {
+                    margin-bottom: 0;
+                    font-size: 18px;
+                    color: var(--tg-body-color);
+                }
+            }
+        }
+        &-two {
+            margin-left: 0;
+            & .accordion {
+                &-item {
+                    margin-bottom: 16px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &.active {
+                        border: 1px solid var(--tg-border-2);
+                        @include border-radius(8px);
+                        background: var(--tg-color-gray-3);
+                    }
+                }
+                &-button {
+                    background: var(--tg-color-gray-3);
+                    @include border-radius(8px);
+                    border: none;
+                    padding: 22px 70px 22px 24px;
+                    &::before {
+                        width: 32px;
+                        height: 32px;
+                        @include flexbox();
+                        align-items: center;
+                        justify-content: center;
+                        background: var(--tg-color-white-default);
+                        @include border-radius(4px);
+                        font-size: 14px;
+                        color: var(--tg-theme-secondary);
+                        right: 24px;
+                        top: 20px;
+                    }
+                }
+                &-body {
+                    padding: 0 24px 24px 24px;
+                }
+            }
+        }
+        &-three {
+            & .accordion-item {
+                border: 1px solid transparent;
+                @include border-radius(16px);
+                &:last-of-type .accordion-button.collapsed {
+                    border-bottom-right-radius: 16px;
+                    border-bottom-left-radius: 16px;
+                }
+                &:first-of-type .accordion-button {
+                    border-top-left-radius: 16px;
+                    border-top-right-radius: 16px;
+                }
+                &.active {
+                    background: var(--tg-color-gray-3);
+                    & .accordion-button {
+                        border: none;
+                        background: transparent;
+                    }
+                }
+            }
+            & .accordion-button {
+                background: var(--tg-color-white-default);
+                border: 1px solid var(--tg-border-2);
+                @include border-radius(16px);
+            }
+            & .accordion-button::before {
+                content: "\f107";
+                background: var(--tg-color-white-default);
+                @include border-radius(50%);
+                font-size: 14px;
+                color: var(--tg-color-gray-4);
+                right: 24px;
+                top: 20px;
+                border: 1px solid #D9DFE5;
+                transform: rotate(-180deg);
+            }
+            & .accordion-button:not(.collapsed)::before {
+                content: "\f107";
+                transform: rotate(0);
+                color: var(--tg-theme-primary-2);
+                border-color: var(--tg-theme-primary-2);
+            }
+        }
+    }
+    &__tab-wrap {
+        & .nav {
+            &-tabs {
+                justify-content: center;
+                border: none;
+                gap: 12px;
+                margin-bottom: 32px;
+            }
+            &-link {
+                font-weight: 500;
+                font-size: 12px;
+                color: var(--tg-theme-primary-2);
+                background: var(--tg-color-white-default);
+                border: 1px solid var(--tg-theme-primary-2);
+                @include border-radius(16px);
+                padding: 8px 15px;
+                line-height: 1;
+                &.active,
+                &:hover {
+                    background: var(--tg-theme-primary-2);
+                    color: var(--tg-color-white-default);
+                    border-color: var(--tg-theme-primary-2);
+                }
+            }
+        }
+    }
+    &__bottom {
+        &-content {
+            text-align: center;
+            margin-top: 45px;
+            & p {
+                margin-bottom: 0;
+                font-weight: 500;
+                & .tg-link-btn {
+                    color: var(--tg-theme-secondary);
+                    margin-left: 5px;
+                    &::after,
+                    &::before {
+                        background: var(--tg-theme-secondary);
+                    }
+                }
+            }
+            &-two {
+                & p {
+                    & .tg-link-btn {
+                        color: var(--tg-theme-primary-2);
+                        &::after,
+                        &::before {
+                            background: var(--tg-theme-primary-2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
