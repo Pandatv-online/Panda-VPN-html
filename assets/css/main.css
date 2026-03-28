@@ -8066,6 +8066,9 @@ textarea {
   stroke-dashoffset: 2000;
   animation: draw 10s ease forwards;
 }
+/*=============================
+    	13. Panda TV
+===============================*/
 
 /*=============================
     	13. Support
@@ -8230,16 +8233,14 @@ textarea {
   margin-bottom: 0;
 }
 .support__content-four {
-
-  max-width: 610px;
-  backdrop-filter: blur(24px);
- 
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  border: 2px solid var(--tg-color-white-default);
-  padding: 48px 48px;
-  position: relative;
-  z-index: 1;
+    max-width: 610px;
+    background: rgba(255, 255, 255, 0.50);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 48px 48px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.20);
 }
 @media (max-width: 1199.98px) {
   .support__content-four {
