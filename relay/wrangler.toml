@@ -1,0 +1,11 @@
+name = "pandavpn-relay"
+main = "relay.js"
+compatibility_date = "2026-11-01"
+
+# Plain variables — not secret, safe to keep in the repository.
+[vars]
+ALLOWED_ORIGINS = "https://panda-vpn.online,https://www.panda-vpn.online"
+
+# TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID are NOT stored here.
+# Set them as secrets in the Cloudflare dashboard (Worker → Settings →
+# Runtime variables and secrets) — see README.md.

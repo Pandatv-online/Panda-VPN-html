@@ -1,52 +1,46 @@
-console.log("Файл form-telegram подключен");
+// Order form → Telegram via the pandavpn-relay Cloudflare Worker.
+// The bot token is NOT stored here: anything shipped to the browser can be
+// read by any visitor. The Worker keeps the token as a Cloudflare secret
+// (see relay/README.md).
+const RELAY_URL = "https://pandavpn-relay.pandatv-eu.workers.dev";
 
 document.addEventListener("DOMContentLoaded", function () {
-
     const form = document.getElementById("contact-form");
+    if (!form) return;
 
-    if (form) {
-        console.log("Форма найдена");
+    const response = document.querySelector(".ajax-response");
+    const value = (name) => {
+        const el = form.querySelector(`[name="${name}"]`);
+        return el ? el.value.trim() : "";
+    };
 
-        form.addEventListener("submit", function(e) {
-            e.preventDefault();
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-            console.log("Форма отправляется");
+        const button = form.querySelector('[type="submit"]');
+        if (button) button.disabled = true;
 
-            const name = document.querySelector('[name="name"]').value;
-            const telegram = document.querySelector('[name="telegram"]').value;
-            const plan = document.querySelector('[name="plan"]').value;
-            const message = document.querySelector('[name="message"]').value;
-
-            const text = `
-🆕 Новая заявка VPN
-
-👤 Имя: ${name}
-📱 Telegram: ${telegram}
-💳 Тариф: ${plan}
-💬 Комментарий: ${message}
-`;
-
-            fetch(`https://api.telegram.org/bot8376520960:AAGVx_I2zV5tlGeKuNgyXLX8i03i7UYC91Y/sendMessage`, {
+        try {
+            const res = await fetch(RELAY_URL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    chat_id: "7405005534",
-                    text: text
-                })
-            })
-            .then(() => {
-                document.querySelector(".ajax-response").innerHTML =
-                "✅ Заявка отправлена! Мы свяжемся с вами в Telegram.";
-            })
-            .catch(() => {
-                document.querySelector(".ajax-response").innerHTML =
-                "❌ Ошибка отправки. Попробуйте позже.";
+                    name: value("name"),
+                    telegram: value("telegram"),
+                    plan: value("plan"),
+                    device: value("device"),
+                    message: value("message"),
+                }),
             });
-        });
-    } else {
-        console.log("Форма НЕ найдена");
-    }
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || !data.ok) throw new Error("relay error");
 
+            if (response) response.innerHTML = "✅ Заявка отправлена! Мы свяжемся с вами в Telegram.";
+            form.reset();
+        } catch (err) {
+            if (response) response.innerHTML = "❌ Ошибка отправки. Попробуйте позже.";
+        } finally {
+            if (button) button.disabled = false;
+        }
+    });
 });
